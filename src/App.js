@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import {Button} from '@material-ui/core';
 import OutputBox from './components/OutputBox';
 const SerialPort = require('@serialport/stream');
 const MockBinding = require('@serialport/binding-mock');
@@ -9,7 +10,8 @@ const useStyles = makeStyles(theme => ({
     header: {
 	backgroundColor: '#282c34',
 	color: 'white',
-	minHeight: '100vh'
+    minHeight: '100vh',
+    padding: '0.75em'
     }
 }));
 
@@ -41,8 +43,8 @@ function App() {
     
     return (
 	<div className={classes.header}>
-	  <button onClick={handleClick}>Test</button>
-	  <button onClick={handleReset}>Reset</button>
+	  <Button variant='contained' onClick={handleClick}>Test</Button>
+	  <Button variant='contained' onClick={handleReset}>Reset</Button>
 	  <OutputBox data={data}/>
 	</div>
     );
