@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { GridList, Paper, GridListTile, Typography } from '@material-ui/core';
 
@@ -25,7 +25,7 @@ export default function OutputBox(props) {
 
     return (
 	<GridList className={classes.gridList} cellHeight={60} cols={1} spacing={1}>
-	  {props.data.map((output, i) => (
+	  {props.data.flat(1/0).reverse().map((output, i) => (
 	      <GridListTile cols={1} key={i}>
 		<Paper className={classes.paper}>
 		  <Typography component='p'>{output}</Typography>
