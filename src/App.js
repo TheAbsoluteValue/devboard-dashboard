@@ -16,7 +16,16 @@ const useStyles = makeStyles(theme => ({
     button: {
 	marginLeft: theme.spacing(1)
     }
+
 }));
+
+const SerialPort = require('@serialport/stream');
+// const SerialPort = require('serialport');
+// const Abstract = require('@serialport/binding-abstract');
+// SerialPort.Binding = Abstract;
+SerialPort.Binding = require('@serialport/bindings');
+const port = new SerialPort('/dev/ttyUSB0', {baudRate: 115200});
+port.on('data', console.log);//dataFrom => setData([dataFrom, ...data]));
 
 //baud for esp-32: 115200
 //data bits: 8
@@ -28,12 +37,6 @@ function App() {
     const classes = useStyles();
     const [data, setData] = useState([]);
     const [count, setCount] = useState(0);
-    const SerialPort = require('@serialport/stream');
-    SerialPort.Binding = require('@serialport/binding-abstract');
-    const port = new SerialPort('/dev/ttyUSB0', {baudRate: 115200});
-    const parser = port.pipe(new Readline());
-    parser.on('data', dataFrom => setData([dataFrom, ...data]));
-
     function handleClick() {
 	setCount(count + 1);
 	port.write(`Test: ${count}\n`);
