@@ -11,4 +11,4 @@ A little project to display messages from an ESP32 in React
 
 `node server/test` to start listening on the port and write to output
 
-Make sure the ESP32 is on the correct port
+Make sure the ESP32 is on the correct port (usually `/dev/ttyUSB0`)
