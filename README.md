@@ -4,10 +4,11 @@ A little project to display messages from an ESP32 in React
 ## Install
 `npm install`
 
-`./node_modules/.bin/electron-rebuild`
-
 ## Start
-`npm start`
+`npm start` to start React
 
-`npm run electron`
+`node server/app` to start express
 
+`node server/test` to start listening on the port and write to output
+
+Make sure the ESP32 is on the correct port
